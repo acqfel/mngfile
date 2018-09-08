@@ -1,14 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
-
-<nav>
-  <a routerLink="/login" routerLinkActive="active">Login</a>
-  <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-  <a routerLink="/file-edit" routerLinkActive="active">File-Edit</a>
+<nav class="navbar">
+  <mat-toolbar color="primary">
+    <a mat-button routerLink="/login" routerLinkActive="active">Login</a>
+    <a mat-button routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    <a mat-button routerLink="/file-edit" routerLinkActive="active">File-Edit</a>
+  </mat-toolbar>
 </nav>
 <router-outlet></router-outlet>
 
