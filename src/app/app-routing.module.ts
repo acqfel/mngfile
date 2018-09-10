@@ -6,9 +6,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FileEditComponent } from './file-edit/file-edit.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+import { AuthGuardService } from './services/auth-guard.service';
+
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'file-edit', component: FileEditComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
