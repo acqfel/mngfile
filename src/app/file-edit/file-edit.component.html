@@ -1,3 +1,13 @@
 <p>
   file-edit works!
 </p>
+<div>
+    <h3>"{{ fileEdit }}"</h3>
+      <label>Text: </label>
+      <input type="textarea" [(ngModel)]="editText" placeholder="text"/>
+    
+    <p>
+      <button (click)="save()">Save</button>
+      <button (click)="cancel()">Cancel</button>
+    </p>
+  </div>

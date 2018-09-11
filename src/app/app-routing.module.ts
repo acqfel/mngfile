@@ -7,11 +7,12 @@ import { FileEditComponent } from './file-edit/file-edit.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
+import { CanDeactivateGuardService } from './services/can-deactivate-guard.service';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
-  { path: 'file-edit', component: FileEditComponent },
+  { path: 'file-edit', component: FileEditComponent, canDeactivate: [CanDeactivateGuardService] },
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
