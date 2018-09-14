@@ -9,8 +9,8 @@ import { Observable, of } from 'rxjs';
 })
 export class FileEditComponent implements OnInit {
 
-  fileEdit: string = 'Enter your text';
-  editText: string;
+  fileEdit: string = '';
+  editText: string = '';
 
   constructor(private route: ActivatedRoute,
               private router: Router) { }
@@ -29,7 +29,7 @@ export class FileEditComponent implements OnInit {
   
   canDeactivate(): Observable<boolean> | boolean {
     // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged
-    if (!this.fileEdit || this.fileEdit === this.editText) {
+    if (this.fileEdit === this.editText) {
       console.log("true deactivate");
       return true;
     }
