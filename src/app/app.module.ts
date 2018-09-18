@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FileEditComponent } from './file-edit/file-edit.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     LoginComponent,
     DashboardComponent,
     FileEditComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
