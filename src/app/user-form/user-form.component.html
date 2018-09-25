@@ -1,11 +1,12 @@
 <p>
   user-form works!
 </p>
-<form (ngSubmit)="sendForm()">
+<form #myForm="ngForm" (ngSubmit)="sendForm()">
     <div *ngFor="let key of modelKeys">
-        {{key}} <input name="{{key}}" 
-                placeholder="Enter {{key}} Here"
-                [(ngModel)]="model[key]" />
+        {{key}} 
+        <input name="{{key}}" type="checkbox" [(ngModel)]="model[key]" *ngIf="key === 'admin' "/>
+        <input name="{{key}}" placeholder="Enter {{key}} Here" [(ngModel)]="model[key]" *ngIf="key === 'nickname' "/>
+        <input name="{{key}}" placeholder="Enter {{key}} Here" [(ngModel)]="model[key]" required *ngIf="key !== 'nickname' && key !== 'admin' "/>
     </div>
-    <button type="submit">Submit</button>
+    <button type="submit" [disabled]="!myForm.valid">Submit</button>
 </form>

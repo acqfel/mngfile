@@ -1,9 +1,9 @@
 export class User {
     constructor(
-    public id: number,
+    public id: string,
     public name: string,
-    public admin: boolean,
     public department: string,
+    public admin?: boolean,
     public nickname?: string
   ) {  }
 }

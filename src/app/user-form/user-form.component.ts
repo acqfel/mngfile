@@ -12,7 +12,7 @@ export class UserFormComponent implements OnInit {
 
   constructor() { }
 
-  model = new User(null, '', false, '', '');
+  model = new User('', '', '', false, '');
   modelKeys = Object.keys(this.model);
 
   ngOnInit() {
