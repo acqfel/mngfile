@@ -1,3 +1,9 @@
 <p>
   user-form works!
 </p>
+<form>
+    <div *ngFor="let key of modelKeys">
+        {{key}} <input name="{{key}}" placeholder="Enter {{key}} Here" />
+    </div>
+    <button (click)="sendForm()">Submit</button>
+</form>

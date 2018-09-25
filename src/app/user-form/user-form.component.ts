@@ -8,9 +8,18 @@ import { User} from '../shared/user';
 })
 export class UserFormComponent implements OnInit {
 
+  name: string;
+
   constructor() { }
 
+  model = new User(null, '', false, '', '');
+  modelKeys = Object.keys(this.model);
+
   ngOnInit() {
+  }
+
+  sendForm = () => {
+    console.log(this.model);
   }
 
 }
