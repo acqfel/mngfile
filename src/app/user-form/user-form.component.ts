@@ -20,6 +20,11 @@ export class UserFormComponent implements OnInit {
 
   sendForm = () => {
     console.log(this.model);
+    this.model = {id: '', name:'', department:'', admin:false, nickname:''};
+  }
+  
+  checkType = (key) => {
+    return typeof key === 'string' ? 'text' : typeof key;
   }
 
 }

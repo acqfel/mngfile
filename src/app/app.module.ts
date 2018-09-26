@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FileEditComponent } from './file-edit/file-edit.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { NoSpecialCharsDirective } from './no-special-chars.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UserFormComponent } from './user-form/user-form.component';
     DashboardComponent,
     FileEditComponent,
     PageNotFoundComponent,
-    UserFormComponent
+    UserFormComponent,
+    NoSpecialCharsDirective
   ],
   imports: [
     BrowserModule,
