@@ -1,6 +1,14 @@
 <h2>Login Page</h2>
-    <p>{{message}}</p>
-    <p>
-      <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
-      <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
-    </p>
+  <p>{{message}}</p>
+  <p>
+    <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
+    <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
+  </p>
+    
+<form (ngSubmit)="sendLogin()" [formGroup]="form">
+  <h3>Login Form</h3>
+  <div *ngFor="let key of modelKeys">
+     {{key}}<input placeholder="Enter {{key}} Here" formControlName="{{key}}" />
+  </div>
+  <button type="submit" >Submit</button>
+</form>
