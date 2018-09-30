@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router }      from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Login } from '../shared/login';
 
 @Component({
@@ -19,10 +19,32 @@ export class LoginComponent implements OnInit {
   modelKeys = Object.keys(this.model);
   form: FormGroup;
   formControls = {};
+  
+  noSpecialChars(c: FormControl) {
+    let REGEXP = new RegExp(/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/);
+
+    return REGEXP.test(c.value) ? {
+        validate: {
+        valid: false
+        }
+    } : null;
+  }
 
   constructor(public authService: AuthService, public router: Router) { 
     this.modelKeys.forEach( (key) => {
-      this.formControls[key] = new FormControl();
+      let validators = [];
+      validators.push(Validators.required);
+      
+      if (key === 'username') {
+        validators.push(this.noSpecialChars);
+      }
+      
+      if (key === 'password') {
+        validators.push(Validators.minLength(8));
+        validators.push(Validators.maxLength(12));
+      }
+      
+      this.formControls[key] = new FormControl(this.model[key], validators);
     });
     this.form = new FormGroup(this.formControls);
   }

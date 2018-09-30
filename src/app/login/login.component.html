@@ -1,4 +1,6 @@
 <h2>Login Page</h2>
+  
+  <h3>Login without password</h3>
   <p>{{message}}</p>
   <p>
     <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
@@ -8,7 +10,13 @@
 <form (ngSubmit)="sendLogin()" [formGroup]="form">
   <h3>Login Form</h3>
   <div *ngFor="let key of modelKeys">
-     {{key}}<input placeholder="Enter {{key}} Here" formControlName="{{key}}" />
+     {{key}}<input placeholder="Enter {{key}} Here" 
+                   *ngIf="key === 'username' " 
+                   formControlName="{{key}}" />
+            <input placeholder="Enter {{key}} Here" 
+                   *ngIf="key === 'password' "
+                   type="password"
+                   formControlName="{{key}}" />
   </div>
-  <button type="submit" >Submit</button>
+  <button type="submit" [disabled]="!form.valid" >Submit</button>
 </form>
