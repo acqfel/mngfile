@@ -6,6 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import 'hammerjs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +34,7 @@ import { NoSpecialCharsDirective } from './no-special-chars.directive';
     FormsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatCardModule,
     AppRoutingModule,
     ReactiveFormsModule
   ],

@@ -1,22 +1,31 @@
-<h2>Login Page</h2>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Login Page</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card-subtitle>
+      Login without password  
+    </mat-card-subtitle>
+    <p>{{message}}</p>
+  </mat-card-content>
   
-  <h3>Login without password</h3>
-  <p>{{message}}</p>
-  <p>
-    <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
-    <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
-  </p>
-    
-<form (ngSubmit)="sendLogin()" [formGroup]="form">
-  <h3>Login Form</h3>
-  <div *ngFor="let key of modelKeys">
-     {{key}}<input placeholder="Enter {{key}} Here" 
-                   *ngIf="key === 'username' " 
-                   formControlName="{{key}}" />
-            <input placeholder="Enter {{key}} Here" 
-                   *ngIf="key === 'password' "
-                   type="password"
-                   formControlName="{{key}}" />
-  </div>
-  <button type="submit" [disabled]="!form.valid" >Submit</button>
-</form>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
+    <button mat-raised-button color="primary" (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
+  </mat-card-actions>
+</mat-card>
+  
+  <form (ngSubmit)="sendLogin()" [formGroup]="form" class="mat-typography">
+    <h3>Login Form</h3>
+    <div *ngFor="let key of modelKeys">
+       {{key}}<input placeholder="Enter {{key}} Here" 
+                     *ngIf="key === 'username' " 
+                     formControlName="{{key}}" />
+              <input placeholder="Enter {{key}} Here" 
+                     *ngIf="key === 'password' "
+                     type="password"
+                     formControlName="{{key}}" />
+    </div>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" >Submit</button>
+  </form>
+
